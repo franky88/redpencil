@@ -3,4 +3,7 @@
 {% block content %}
 <h1>{{ title|title }}</h1>
 <hr>
+{% for post in postlist %}
+	<h3>{{post.title|title}}</h3>
+{% endfor %}
 {% endblock %}
