@@ -11,8 +11,10 @@ class Category(models.Model):
 		return self.cat_name
 	def __str__(self):
 		return self.cat_name
+		
 class Post(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+	category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
 	title = models.CharField(max_length=120)
 	description = models.TextField(null=True, blank=True)
 	image = models.ImageField(upload_to="post_images/%Y/%m/%d", null=True, blank=True)
