@@ -4,11 +4,20 @@
 <h1>{{ title|title }}</h1>
 <hr>
 {% if postlist %}
-{% for post in postlist %}
-	<h3><a href="{% url 'posts:detail' post.id %}">{{post.title|title}}</a></h3>
-	<img src="{{post.image.url}}">
-{% endfor %}
+	<div class="card-columns">
+	  {% for post in postlist %}
+	  <div class="card">
+	    <img class="card-img-top img-fluid" src="{{post.image.url}}" alt="Card image cap">
+	    <div class="card-block">
+	      <h4 class="card-title"><a href="{% url 'posts:detail' post.id %}">{{post.title|title}}</a></h4>
+	      <p class="card-text">{{post.description}}</p>
+	      <p class="card-text"><small class="text-muted">Posted last: {{post.timestamp}} | by: {{post.user}}</small></p>
+	    </div>
+	  </div>
+	  {% endfor %}
+	</div>
 {% else %}
-<p>Nothing here!</p>
+	<p>Nothing here!</p>
 {% endif %}
+
 {% endblock %}
