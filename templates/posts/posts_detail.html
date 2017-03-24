@@ -3,5 +3,22 @@
 {% block content %}
 <h1>{{title|title}}</h1>
 <hr>
-<h3>{{instance.title|title}}</h3>
+<div class="row">
+	<div class="col-sm-8">
+		
+		
+		<img src="{{instance.image.url}}" alt="" class="img-res">
+	</div>
+	<div class="col-sm-4">
+		<div class="card">
+			<div class="card-block">
+				<h4 class="card-title">{{instance.title|title}}</h4>
+				<p class="card-text">{{instance.description}}</p>
+				<p class="card-text"><small class="text-muted">Posted last: {{instance.timestamp}} | by: {{instance.user}}</small></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 {% endblock %}

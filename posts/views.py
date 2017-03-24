@@ -4,7 +4,7 @@ from .models import Post
 def postIndex(request):
 	post_list = Post.objects.all().order_by("-timestamp", "-updated")
 	context = {
-		"title": "post list",
+		"title": "post grid",
 		"postlist": post_list,
 	}
 	return render(request, "posts/posts_index.html", context)

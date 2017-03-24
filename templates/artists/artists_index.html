@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{title|title}}</h1>
+<hr>
+{% for name in artistlist %}
+<h3><a href="{% url 'artists:detail' name.id %}">{{name.get_short_name|title}}</a></h3>
+{% endfor %}
+{% endblock %}
