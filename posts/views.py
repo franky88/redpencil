@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 # Create your views here.
 def postIndex(request):
@@ -8,3 +8,11 @@ def postIndex(request):
 		"postlist": post_list,
 	}
 	return render(request, "posts/posts_index.html", context)
+
+def postDetail(request, pk):
+	instance = get_object_or_404(Post, pk=pk)
+	context = {
+		"title": "post detail",
+		"instance": instance,
+	}
+	return render(request, "posts/posts_detail.html", context)
