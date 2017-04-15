@@ -10,9 +10,9 @@ def postIndex(request):
 	return render(request, "posts/posts_index.html", context)
 
 def postDetail(request, pk):
-	instance = get_object_or_404(Post, pk=pk)
+	post_instance = get_object_or_404(Post, pk=pk)
 	context = {
 		"title": "post detail",
-		"instance": instance,
+		"postinstance": post_instance,
 	}
 	return render(request, "posts/posts_detail.html", context)

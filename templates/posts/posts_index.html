@@ -7,7 +7,7 @@
 	<div class="card-columns">
 	  {% for post in postlist %}
 	  <div class="card">
-	    <img class="card-img-top img-fluid" src="{{post.image.url}}" alt="Card image cap">
+	    <a href="{% url 'posts:detail' post.id %}"><img class="card-img-top img-fluid" src="{{post.image.url}}" alt="{{post.image}}"></a>
 	    <div class="card-block">
 	      <h4 class="card-title"><a href="{% url 'posts:detail' post.id %}">{{post.title|title}}</a></h4>
 	      <p class="card-text">{{post.description}}</p>
