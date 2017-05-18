@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ title|title }}</h1>
+<h3>{{ title|title }}</h3>
+<hr>
+Categories: |
+{% for cat in catlist %}
+	<a href="{% url 'posts:catdetail' cat.id %}">{{cat.cat_name|title}}</a> |
+{% endfor %}
 <hr>
 {% if postlist %}
 	<div class="card-columns">
