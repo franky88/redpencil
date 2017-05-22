@@ -4,6 +4,11 @@
 {% block content %}
 <h3>{{catinstance.cat_name|title}} {{title|title}}</h3>
 <hr>
+Categories: | <a href="{% url 'posts:index' %}">All</a> |
+{% for cat in catlist %}
+	<a href="{% url 'posts:catdetail' cat.id %}">{{cat.cat_name|title}}</a> |
+{% endfor %}
+<hr>
 <div class="row">
 	<div class="col-sm-12">
 		<div class="card-columns">

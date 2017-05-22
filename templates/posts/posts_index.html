@@ -3,7 +3,7 @@
 {% block content %}
 <h3>{{ title|title }}</h3>
 <hr>
-Categories: |
+Categories: | <a href="{% url 'posts:index' %}">All</a> |
 {% for cat in catlist %}
 	<a href="{% url 'posts:catdetail' cat.id %}">{{cat.cat_name|title}}</a> |
 {% endfor %}
