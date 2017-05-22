@@ -16,7 +16,7 @@ Categories: | <a href="{% url 'posts:index' %}">All</a> |
 		  <div class="card">
 		    <img class="card-img-top img-fluid" src="{{category.image.url}}" alt="Card image cap">
 		    <div class="card-block">
-		      <h4 class="card-title"><a href="{% url 'posts:detail' category.id %}">{{category.art_title|title}}</a> <small>by: {{category.user|title}}</small></h4>
+		      <h4 class="card-title"><a href="{% url 'posts:detail' category.id %}">{{category.art_title|title}}</a> <small>by: <a href="{% url 'artists:detail' category.user.id %}">{{category.user|title}}</a></small></h4>
 		      <p class="card-text">{{category.description}}</p>
 		      <p class="card-text"><small class="text-muted">Category: {{category.category.cat_name|title}}</small></p>
 		      <hr>

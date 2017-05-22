@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>{{ title|title }}</h3>
+<h3>{{ title|title }} | <a href="{% url 'posts:addpost' %}" type="button" class="btn btn-primary btn-sm">Add Post</a></h3> 
 <hr>
 Categories: | <a href="{% url 'posts:index' %}">All</a> |
 {% for cat in catlist %}
@@ -16,7 +16,7 @@ Categories: | <a href="{% url 'posts:index' %}">All</a> |
 	    <div class="card-block">
 	      <h4 class="card-title"><a href="{% url 'posts:detail' post.id %}">{{post.title|title}}</a></h4>
 	      <p class="card-text">{{post.description}}</p>
-	      <p class="card-text"><small class="text-muted">Posted last: {{post.timestamp}} | by: {{post.user}}</small></p>
+	      <p class="card-text"><small class="text-muted">Posted last: {{post.timestamp}} | by: <a href="{% url 'artists:detail' post.user.id %}">{{post.user}}</a></small></p>
 	    </div>
 	  </div>
 	  {% endfor %}
